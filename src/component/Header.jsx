@@ -1,13 +1,13 @@
 
 
-const Header = () => {
+const Header = (props) => {
     return (
-        <div>
+        <div style={{ padding: 25 }} >
+            <p>{props.title}</p>
             <ul>
                 <li>Home</li>
-                <li>Others</li>
+                <li>Other</li>
             </ul>
-            
         </div>
     );
 };

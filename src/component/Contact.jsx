@@ -1,10 +1,19 @@
 
 
 const Contact = () => {
+
+    const formData = (e) => {
+        e.preventDefault();
+        alert("Form submitted!");
+    }
+
     return (
-        <div>
-            <input type="text"  />
-            <button>Submit</button>
+        <div style={{ padding: 25 }}>
+            <h2>Test Form</h2>
+            <form onSubmit={formData}>
+                <input type="text" placeholder="Name" />
+                <button type="submit">Submit</button>
+            </form>
         </div>
     );
 };
