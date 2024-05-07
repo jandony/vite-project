@@ -1,9 +1,11 @@
 import React from 'react';
+import Menu from '../component/Menu';
 
 const NotFound = () => {
     return (
         <div>
-           <h1>404</h1>
+            <Menu />
+           <h1>404 Not Found!</h1>
         </div>
     );
 };

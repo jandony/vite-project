@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
-    let [data, setData] = useState();
-
-    useEffect(() => {
-        (async () => {
-            let response = await fetch("https://dummyjson.com/products/1");
-            let json = await response.json();
-            setData(json);
-        })();
-    }, []);
-
     return (
         <div>
-            <h1>Hello React!</h1>
-            {JSON.stringify(data)}
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/about/:id/:name" element={<AboutPage />} />
+                    <Route path="/contact" element={<ContactPage />} />
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
+            </BrowserRouter>
         </div>
     );
 };
