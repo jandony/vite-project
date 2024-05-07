@@ -115,14 +115,26 @@ const App = () => {
     },[]);
 
     // SECTION 11
-    let [awaitData, setAwaitData] = useState();
+    let [awaitData, setAwaitData] = useState(null);
     useEffect(() => {
-        (async () => {
-            let response = await fetch('https://dummyjson.com/products/1');
-            let json = await response.json();
-            setAwaitData(json);
-        })
-        
+        // Course code that doesn't work
+            // (async () => {
+            //     let awaitRes = await fetch('https://dummyjson.com/products/1');
+            //     let resJSON = await awaitRes.json();
+            //     setAwaitData(resJSON);
+            // })
+
+        // ChatGPT Solution
+        const fetchData = async () => {
+            try {
+                let awaitRes = await fetch('https://dummyjson.com/products/1');
+                let resJSON = await awaitRes.json();
+                setAwaitData(resJSON);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData(); // Call the async function immediately after defining it
     },[]);
 
     return (
